@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    * {
+      font-family: "Fredoka", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 600;
+      font-style: normal;
+      font-variation-settings: "wdth" 100;
+    }
+    header h1,
+    footer h1 {
+      text-align: center;
+    }
+  </style>
+  <body>
+    <header><h1>Projects</h1></header>
+    <main>
+      <!-- Counter App -->
+      <h1>1. Counter App</h1>
+      <p id="counter">0</p>
+      <button onclick="increase()">+</button>
+      <button onclick="decrease()">-</button>
+      <h3>AI rating = 7/10</h3>
+
+      <!-- Random Quote Generator -->
+      <h1>2. Random Quote Generator</h1>
+      <p id="display">Click Change Quote to display</p>
+      <button id="change">Change Quote</button>
+      <h3>AI rating = 7.5/10</h3>
+
+      <!-- Rock Paper Scissors -->
+      <h1>3. Rock Paper Scissors</h1>
+      <p id="d2"></p>
+      <button id="rock">🪨</button>
+      <button id="paper">📃</button>
+      <button id="scissors">✂️</button>
+      <p id="score">Score: Pick Something</p>
+      <h3>AI rating = 8/10</h3>
+
+      <!-- Color Generator -->
+      <h1>4. Color Generator</h1>
+      <p>
+        By clicking this button background color will change to random color
+      </p>
+      <button id="ch2">Change</button>
+      <h3>AI rating = 7/10</h3>
+
+      <!-- Fake Login Screen -->
+      <h1>5. Fake Login Screen</h1>
+
+      <form>
+        <input type="text" name="un" id="un" placeholder="Your Name" />
+        <label for="un"></label>
+        <input type="text" name="pswd" id="pswd" placeholder="Your Password" />
+        <button type="submit" id="submit">Submit</button>
+      </form>
+      <p id="access">Access: Granted/Declined</p>
+      <h3>AI rating = 8/10</h3>
+
+      <!-- Calculator  -->
+      <h1>6. Calculator App</h1>
+      <div>
+        <div id="display2">0</div>
+        <div id="buttons">
+          <button id="one">1</button>
+          <button id="two">2</button>
+          <button id="three">3</button><br />
+          <button id="four">4</button>
+          <button id="five">5</button>
+          <button id="six">6</button><br />
+          <button id="seven">7</button>
+          <button id="eight">8</button>
+          <button id="nine">9</button><br />
+          <button id="zero">0</button>
+          <button id="plus2">+</button>
+          <button id="minus2">-</button><br />
+          <button id="substruck">/</button>
+          <button id="multiply">*</button>
+          <button id="equals">=</button>
+          <button id="clear">C</button>
+        </div>
+      </div>
+
+      <h3>AI rating = 9/10</h3>
+
+      <h1>7. To-do List</h1>
+      <input type="text" name="task" id="task" placeholder="Task Name" />
+      <button type="submit" id="addtask">Add task</button>
+      <h3>AI rating = 8.5/10</h3>
+      <ul id="list">
+        <li>Add task Here</li>
+      </ul>
+    </main>
+    <footer>
+      <h1>AI overall Rating = 8.4/10</h1>
+    </footer>
+    <script>
+      // Counter App
+      let counter = 0;
+      let count = document.getElementById("counter");
+
+      function increase() {
+        counter++;
+        count.innerHTML = counter;
+      }
+
+      function decrease() {
+        counter--;
+        count.innerHTML = counter;
+      }
+
+      // Random Quote Generator
+      const quotes = [
+        "The only way to do great work is to love what you do.",
+        "In the middle of every difficulty lies opportunity.",
+        "It does not matter how slowly you go as long as you do not stop.",
+        "Life is what happens when you're busy making other plans.",
+        "The future belongs to those who believe in the beauty of their dreams.",
+        "It is during our darkest moments that we must focus to see the light.",
+        "Spread love everywhere you go. Let no one ever come to you without leaving happier.",
+        "When you reach the end of your rope, tie a knot in it and hang on.",
+        "Always remember that you are absolutely unique. Just like everyone else.",
+      ];
+
+      let display = document.getElementById("display");
+      let change = document.getElementById("change");
+
+      change.addEventListener("click", function () {
+        let rand = Math.floor(Math.random() * quotes.length);
+        display.innerHTML = quotes[rand];
+      });
+
+      // Rock Paper Scissors
+      let d2 = document.getElementById("d2");
+      let picks = ["🪨", "📃", "✂️"];
+      let rock = document.getElementById("rock");
+      let paper = document.getElementById("paper");
+      let scissors = document.getElementById("scissors");
+      let score = document.getElementById("score");
+
+      rock.addEventListener("click", function () {
+        const random = Math.floor(Math.random() * 3);
+        d2.innerHTML = picks[random];
+        if (d2.innerHTML === picks[0]) {
+          score.innerHTML = "Score: It's a Draw";
+        } else if (d2.innerHTML === picks[1]) {
+          score.innerHTML = "Score: You Lost!";
+        } else {
+          score.innerHTML = "Score: You Won!";
+        }
+      });
+      paper.addEventListener("click", function () {
+        const random = Math.floor(Math.random() * 3);
+        d2.innerHTML = picks[random];
+        if (d2.innerHTML === picks[0]) {
+          score.innerHTML = "Score: You won!";
+        } else if (d2.innerHTML === picks[1]) {
+          score.innerHTML = "Score: It's a Draw";
+        } else {
+          score.innerHTML = "Score: You Lost!";
+        }
+      });
+      scissors.addEventListener("click", function () {
+        const random = Math.floor(Math.random() * 3);
+        d2.innerHTML = picks[random];
+        if (d2.innerHTML === picks[0]) {
+          score.innerHTML = "Score: You Lost!";
+        } else if (d2.innerHTML === picks[1]) {
+          score.innerHTML = "Score: You won!";
+        } else {
+          score.innerHTML = "Score: It's a Draw";
+        }
+      });
+
+      // Color Generator
+
+      let ch2 = document.getElementById("ch2");
+
+      ch2.addEventListener("click", function () {
+        let rr = Math.floor(Math.random() * 256);
+        let rg = Math.floor(Math.random() * 256);
+        let rb = Math.floor(Math.random() * 256);
+        document.body.style.background = `rgb(${rr},${rg},${rb})`;
+      });
+
+      // Fake Login Screen
+      let access = document.getElementById("access");
+      let un = document.getElementById("un");
+      let pswd = document.getElementById("pswd");
+      let submit = document.getElementById("submit");
+      let password = "1234";
+      let username = "admin";
+
+      submit.addEventListener("click", function () {
+        if (un.value === username && pswd.value === password) {
+          access.innerHTML = "Access: Granted";
+          access.style.color = "#00FF00";
+        } else {
+          access.innerHTML = "Access: Declined";
+          access.style.color = "#880808";
+        }
+      });
+
+      // Calculator
+      let current = "";
+      let display2 = document.getElementById("display2");
+
+      let one = document.getElementById("one");
+      let two = document.getElementById("two");
+      let three = document.getElementById("three");
+      let four = document.getElementById("four");
+      let five = document.getElementById("five");
+      let six = document.getElementById("six");
+      let seven = document.getElementById("seven");
+      let eight = document.getElementById("eight");
+      let nine = document.getElementById("nine");
+      let zero = document.getElementById("zero");
+      let plus2 = document.getElementById("plus2");
+      let minus2 = document.getElementById("minus2");
+      let substruck = document.getElementById("substruck");
+      let multiply = document.getElementById("multiply");
+      let equals = document.getElementById("equals");
+      let clear = document.getElementById("clear");
+
+      function addValue(value) {
+        current += value;
+        display2.innerHTML = current;
+      }
+
+      one.addEventListener("click", function () {
+        addValue("1");
+      });
+      two.addEventListener("click", function () {
+        addValue("2");
+      });
+      three.addEventListener("click", function () {
+        addValue("3");
+      });
+      four.addEventListener("click", function () {
+        addValue("4");
+      });
+      five.addEventListener("click", function () {
+        addValue("5");
+      });
+      six.addEventListener("click", function () {
+        addValue("6");
+      });
+      seven.addEventListener("click", function () {
+        addValue("7");
+      });
+      eight.addEventListener("click", function () {
+        addValue("8");
+      });
+      nine.addEventListener("click", function () {
+        addValue("9");
+      });
+      zero.addEventListener("click", function () {
+        addValue("0");
+      });
+      plus2.addEventListener("click", function () {
+        addValue("+");
+      });
+      minus2.addEventListener("click", function () {
+        addValue("-");
+      });
+      substruck.addEventListener("click", function () {
+        addValue("/");
+      });
+      multiply.addEventListener("click", function () {
+        addValue("*");
+      });
+
+      equals.addEventListener("click", function () {
+        current = eval(current);
+        display2.innerHTML = current;
+      });
+
+      clear.addEventListener("click", function () {
+        current = "";
+        display2.innerHTML = "0";
+      });
+
+      // To-do list
+      let task = document.getElementById("task");
+      let addtask = document.getElementById("addtask");
+      let list = document.getElementById("list");
+
+      addtask.addEventListener("click", function () {
+        let newtask = task.value;
+        let li = document.createElement("li");
+        li.textContent = newtask;
+        list.appendChild(li);
+      });
+    </script>
+  </body>
+</html>
